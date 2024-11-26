@@ -50,6 +50,7 @@ void HandleCollision()
 			}
 			int value = hs.myScore[0];
 			Play::DrawDebugText(Play::Point2D(DISPLAY_WIDTH - 600, DISPLAY_HEIGHT / 10), std::to_string(value).c_str(), Play::cWhite, true);
+			
 
 		}
 	}
