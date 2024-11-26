@@ -3,6 +3,8 @@
 #include "game.h"
 
 
+HS hs;
+
 void SpawnBall() 
 {
 	const int objectId = Play::CreateGameObject(ObjectType::TYPE_BALL, { DISPLAY_WIDTH / 2, DISPLAY_HEIGHT - 100 }, 4, "ball");  //Should have been in StepFrame. Spawns the ball at chosen coordinates
@@ -88,6 +90,10 @@ int SetupScene()
 			Play::CreateGameObject(ObjectType::TYPE_BRICK, { x, y }, 6, "brick");
 		}
 	}
+
+
+
+
 	return 0;
 }
 

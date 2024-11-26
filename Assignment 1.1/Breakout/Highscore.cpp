@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-HS hs;
+
 
 void DrawHighscore() {
 	for (int i = 0; i < 5; ++i) {
@@ -21,7 +21,7 @@ void DrawHighscore() {
 
 void ResetScene() {
     const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(TYPE_BALL);
-    if (ballIds.size() == 1) {
+    //if (ballIds.size() == 1) {
         Play::GameObject& ball = Play::GetGameObject(ballIds[0]);
         if (ball.pos.y < 0) {
             const std::vector<int> brickIds = Play::CollectGameObjectIDsByType(TYPE_BRICK);
@@ -31,5 +31,5 @@ void ResetScene() {
             SetupScene();
             SpawnBall();
         }
-    }
+    //}
 }

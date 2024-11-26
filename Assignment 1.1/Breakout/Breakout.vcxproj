@@ -132,7 +132,6 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="Highscore.h" />
     <ClInclude Include="Paddle.h" />
-    <ClInclude Include="HelloWorld\Play.h" />
     <ClInclude Include="Play.h" />
   </ItemGroup>
   <ItemGroup>
