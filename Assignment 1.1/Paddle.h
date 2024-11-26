@@ -1,5 +1,6 @@
 #pragma once
-#include "constants.h"
+#include "game.h"
+
 struct Paddle
 {
 	float x = 37, y = 5;

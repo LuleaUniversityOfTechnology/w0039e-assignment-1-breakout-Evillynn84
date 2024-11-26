@@ -1,8 +1,7 @@
 #define PLAY_IMPLEMENTATION
 #define PLAY_USING_GAMEOBJECT_MANAGER
-#include "Play.h"
 #include "game.h"
-#include "Paddle.h"
+
 
 void SpawnBall() 
 {
@@ -18,6 +17,9 @@ void StepFrame(float elapsedTime)
 	DrawPaddle(MyPaddle);
 	DrawBalls();
 	HandleCollision();
+	ResetScene();
+	DrawHighscore();
+
 	const std::vector<int> brickIds = Play::CollectGameObjectIDsByType(TYPE_BRICK);
 	for (int id : brickIds) {
 		Play::GameObject& brick = Play::GetGameObject(id);
@@ -40,7 +42,12 @@ void HandleCollision()
 				const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(TYPE_BALL);
 				Play::GameObject& object = Play::GetGameObject(ballIds[i]);
 				object.velocity = -(object.velocity);
+				int value = hs.myScore[0];				//Draws current player score
+				hs.myScore[0] += 1;
+				
 			}
+			int value = hs.myScore[0];
+			Play::DrawDebugText(Play::Point2D(DISPLAY_WIDTH - 600, DISPLAY_HEIGHT / 10), std::to_string(value).c_str(), Play::cWhite, true);
 
 		}
 	}
@@ -52,12 +59,12 @@ void HandleCollision()
 			ball.velocity.y = -(ball.velocity.y);
 		}
 	}
+
 }
 
 int DrawBalls()
 {
 	const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(TYPE_BALL);				//Drawns the ball and changes the balls velicity after hitting the walls
-
 		for (int i = 0; i < ballIds.size(); ++i) {
 			Play::GameObject& object = Play::GetGameObject(ballIds[i]);
 			Play::UpdateGameObject(object);
@@ -65,7 +72,7 @@ int DrawBalls()
 			if (object.pos.x > DISPLAY_WIDTH || object.pos.x < 0) {
 				object.velocity.x = -(object.velocity.x);
 			}
-			if (object.pos.y > DISPLAY_HEIGHT || object.pos.y < 0) {
+			if (object.pos.y > DISPLAY_HEIGHT) {
 				object.velocity.y = -(object.velocity.y);
 			}
 		}

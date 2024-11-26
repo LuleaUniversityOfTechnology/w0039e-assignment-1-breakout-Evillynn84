@@ -1,9 +1,7 @@
-#define PLAY_USING_GAMEOBJECT_MANAGER
-#include "Paddle.h"
-#include "Play.h"
-#include "constants.h"
+#include "game.h"
 #include <algorithm>
 #include <iostream>  
+
 
 
 
