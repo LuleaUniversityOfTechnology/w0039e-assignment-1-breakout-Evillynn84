@@ -3,7 +3,8 @@
 #include <vector>
 
 struct HS {
-    std::vector<unsigned int> score;
+    int nums;
+    int* score = new int[nums];
     unsigned int myScore[1] = { 0 };
 };
 

@@ -19,7 +19,7 @@ void StepFrame(float elapsedTime)
 	DrawPaddle(MyPaddle);
 	DrawBalls();
 	HandleCollision();
-	ResetScene();
+	//ResetScene();
 	DrawHighscore();
 
 	const std::vector<int> brickIds = Play::CollectGameObjectIDsByType(TYPE_BRICK);
@@ -27,6 +27,13 @@ void StepFrame(float elapsedTime)
 		Play::GameObject& brick = Play::GetGameObject(id);
 		Play::UpdateGameObject(brick);
 		Play::DrawObject(brick);
+	}
+
+	Play::GameObject& ball = Play::GetGameObject(Play::CollectGameObjectIDsByType(TYPE_BALL)[0]);
+
+	if (ball.pos.y < 0)
+	{
+		ResetScene();
 	}
 }
 
