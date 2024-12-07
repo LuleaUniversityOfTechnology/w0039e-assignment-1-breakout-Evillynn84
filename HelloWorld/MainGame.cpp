@@ -3,13 +3,14 @@
 void MainGameEntry( PLAY_IGNORE_COMMAND_LINE )
 {
 	Play::CreateManager( DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_SCALE );
-	
+	void GameEntry();
 }
 
 // Called by PlayBuffer every frame (60 times a second!)
 bool MainGameUpdate( float elapsedTime )
 {
 	Play::ClearDrawingBuffer( Play::cBlack );
+	void GameUpdate();
 	Play::PresentDrawingBuffer();
 	return Play::KeyDown( Play::KEY_ESCAPE );
 }
@@ -18,5 +19,6 @@ bool MainGameUpdate( float elapsedTime )
 int MainGameExit( void )
 {
 	Play::DestroyManager();
+	void GameExit();
 	return PLAY_OK;
 }

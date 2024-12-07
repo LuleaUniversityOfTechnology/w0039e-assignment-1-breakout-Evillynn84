@@ -18,7 +18,7 @@ Asteroid::Asteroid() {
 void Asteroid::simulate(float elapsedTime) {
     // Rotate asteroid slightly
     rotation += rotationalSpeed * elapsedTime;
-    if (rotation >= 2 * M_PI) rotation -= 2 * M_PI;
+    if (rotation >= 2 * PLAY_PI) rotation -= 2 * PLAY_PI;
 
     // Apply simple physics (position update, acceleration, etc.)
     x += vx * elapsedTime;
@@ -27,7 +27,7 @@ void Asteroid::simulate(float elapsedTime) {
 
 void Asteroid::draw() {
     // Draw the asteroid at its current position, rotated
-    DrawSpriteRotated(spriteID, x, y, rotation);
+    DrawSpriteRotated(int spriteID, { x, y }, 10, 1.2, cWhite);
 }
 
 void Asteroid::collide(Rigidbody* other) {

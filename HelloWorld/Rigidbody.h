@@ -15,3 +15,5 @@ struct Rigidbody {
     virtual void draw() = 0;                       // Draw the object (pure virtual)
     virtual void collide(Rigidbody* other) = 0;    // Handle collision (pure virtual)
 };
+
+

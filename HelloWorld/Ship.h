@@ -15,3 +15,5 @@ public:
     void draw() override;
     void collide(Rigidbody* other) override;
 };
+
+#endif
