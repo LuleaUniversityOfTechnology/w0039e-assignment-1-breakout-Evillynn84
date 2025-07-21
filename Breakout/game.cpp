@@ -15,7 +15,7 @@ void SpawnBall()
 
 void StepFrame(float elapsedTime)
 {
-	UpdatePaddle(MyPaddle);           //Handles updating of objects such as ball and paddle so they can move (through calling functions), but also to updates frames for destroyed bricks bricks
+	UpdatePaddle(MyPaddle); //Handles updating of objects such as ball and paddle so they can move (through calling functions), but also to updates frames for destroyed bricks bricks
 	DrawPaddle(MyPaddle);
 	DrawBalls();
 	HandleCollision();
@@ -38,7 +38,7 @@ void StepFrame(float elapsedTime)
 }
 
 void HandleCollision()
-{                                                                                         //Handles collisions of the bricks and removal of those bricks
+{                                                                                     //Handles collisions of the bricks and removal of those bricks
 	const std::vector<int> brickIds = Play::CollectGameObjectIDsByType(TYPE_BRICK);     
 	for (int id : brickIds) {
 		Play::GameObject& brick = Play::GetGameObject(id);

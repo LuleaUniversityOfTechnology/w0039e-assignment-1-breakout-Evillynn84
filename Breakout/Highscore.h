@@ -2,7 +2,7 @@
 #include "game.h"
 #include <vector>
 
-struct HS {
+struct HS { //sets up the dynamically allocated highscore
     int nums;
     int* score = new int[nums];
     unsigned int myScore[1] = { 0 };
